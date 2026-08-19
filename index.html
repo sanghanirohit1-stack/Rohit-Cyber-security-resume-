@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sanghani Rohit | BCA Student Portfolio</title>
+  
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Rajdhani:wght@500;600;700&family=Inter:wght@300;400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --bg-dark: #070b0d;
+      --bg-card: rgba(13, 22, 26, 0.85);
+      --bg-card-border: #18332a;
+      --neon-green: #00ff66;
+      --neon-glow: rgba(0, 255, 102, 0.35);
+      --text-main: #e6edf3;
+      --text-muted: #8b949e;
+      --font-display: 'Rajdhani', 'Orbitron', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --font-code: 'Fira Code', monospace;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      overflow-x: hidden;
+      line-height: 1.6;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(0, 255, 102, 0.04) 0%, transparent 25%),
+        radial-gradient(circle at 90% 80%, rgba(0, 255, 102, 0.04) 0%, transparent 25%);
+    }
+
+    /* Header & Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(7, 11, 13, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0, 255, 102, 0.15);
+      padding: 1rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .brand-icon {
+      color: var(--neon-green);
+      font-size: 1.8rem;
+      filter: drop-shadow(0 0 8px var(--neon-glow));
+    }
+
+    .brand-title {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.2rem;
+      letter-spacing: 2px;
+      color: #fff;
+    }
+
+    .brand-title span {
+      color: var(--neon-green);
+    }
+
+    .brand-subtitle {
+      display: block;
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.8rem;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: all 0.25s ease;
+    }
+
+    nav a:hover, nav a.active {
+      color: var(--neon-green);
+      text-shadow: 0 0 10px var(--neon-glow);
+    }
+
+    /* Container */
+    .container {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 3.5rem 1rem 2.5rem;
+      position: relative;
+      background: radial-gradient(circle at center, rgba(0, 255, 102, 0.08) 0%, transparent 70%);
+      border-radius: 20px;
+      margin-bottom: 2rem;
+    }
+
+    .hero-badge-container {
+      margin-bottom: 1.5rem;
+      display: inline-block;
+    }
+
+    .hero-badge {
+      width: 90px;
+      height: 90px;
+      border: 2px solid var(--neon-green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: var(--neon-green);
+      box-shadow: 0 0 25px var(--neon-glow), inset 0 0 15px rgba(0, 255, 102, 0.2);
+      margin: 0 auto;
+      background: rgba(0, 255, 102, 0.04);
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+
+    .hero h1 span {
+      color: var(--neon-green);
+      text-shadow: 0 0 15px var(--neon-glow);
+    }
+
+    .hero-tag {
+      font-family: var(--font-display);
+      letter-spacing: 5px;
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-tag::before, .hero-tag::after {
+      content: '—';
+      margin: 0 10px;
+      color: var(--neon-green);
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--text-main);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-desc strong {
+      color: var(--neon-green);
+    }
+
+    /* Layout & Cards */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      border-radius: 12px;
+      padding: 1.8rem;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .card:hover {
+      border-color: rgba(0, 255, 102, 0.4);
+    }
+
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 1.4rem;
+      text-transform: uppercase;
+    }
+
+    .card-title i {
+      color: var(--neon-green);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    /* About Card Layout */
+    .about-content {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .about-text {
+      flex: 1.2;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .about-visual {
+      flex: 0.8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .cyber-hacker-illustration {
+      width: 100%;
+      max-width: 220px;
+      height: 150px;
+      border: 1px dashed var(--neon-green);
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle, rgba(0, 255, 102, 0.1) 0%, transparent 80%);
+      color: var(--neon-green);
+      box-shadow: 0 0 15px rgba(0, 255, 102, 0.15);
+    }
+
+    .cyber-hacker-illustration i {
+      font-size: 3.5rem;
+      margin-bottom: 8px;
+    }
+
+    /* Skills Progress Bars */
+    .skill-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.9rem;
+      font-size: 0.9rem;
+    }
+
+    .skill-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 175px;
+      font-weight: 500;
+    }
+
+    .skill-info i {
+      font-size: 1.05rem;
+      width: 20px;
+      text-align: center;
+      color: var(--neon-green);
+    }
+
+    .progress-bar-bg {
+      flex: 1;
+      height: 7px;
+      background: #122122;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #00bb4e, var(--neon-green));
+      border-radius: 6px;
+      box-shadow: 0 0 8px var(--neon-glow);
+    }
+
+    /* Education Timeline */
+    .edu-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+    }
+
+    .edu-content {
+      padding-left: 1.2rem;
+      border-left: 2px solid var(--neon-green);
+      position: relative;
+    }
+
+    .edu-content::before {
+      content: '';
+      position: absolute;
+      left: -6px;
+      top: 3px;
+      width: 10px;
+      height: 10px;
+      background: var(--neon-green);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--neon-green);
+    }
+
+    .edu-degree {
+      color: var(--neon-green);
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .edu-spec {
+      color: var(--text-main);
+      font-size: 0.9rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .edu-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .edu-meta div {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .edu-meta i {
+      color: var(--neon-green);
+      width: 16px;
+      text-align: center;
+    }
+
+    .edu-badge {
+      display: inline-block;
+      padding: 0.15rem 0.5rem;
+      background: rgba(0, 255, 102, 0.1);
+      border: 1px solid rgba(0, 255, 102, 0.3);
+      border-radius: 4px;
+      color: var(--neon-green);
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-top: 0.3rem;
+      width: fit-content;
+    }
+
+    /* Experience & Project */
+    .exp-project-box {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+    }
+
+    .icon-badge {
+      width: 50px;
+      height: 50px;
+      border: 1px solid var(--neon-green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--neon-green);
+      font-size: 1.3rem;
+      background: rgba(0, 255, 102, 0.05);
+      flex-shrink: 0;
+    }
+
+    .exp-title {
+      color: var(--neon-green);
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
+      letter-spacing: 1px;
+    }
+
+    .exp-text {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    /* Languages */
+    .lang-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      text-align: center;
+    }
+
+    .lang-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 0.8rem;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 8px;
+    }
+
+    .lang-box i {
+      font-size: 1.6rem;
+      color: var(--neon-green);
+    }
+
+    .lang-info {
+      text-align: left;
+    }
+
+    .lang-name {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .lang-level {
+      color: var(--neon-green);
+      font-size: 0.8rem;
+      text-transform: capitalize;
+    }
+
+    /* Download Resume Section (Bottom) */
+    .download-card {
+      text-align: center;
+      padding: 2.2rem 1.5rem;
+      background: linear-gradient(180deg, rgba(13, 22, 26, 0.9) 0%, rgba(0, 255, 102, 0.05) 100%);
+      border: 1px dashed var(--neon-green);
+    }
+
+    .download-card .card-title {
+      justify-content: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .download-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .action-group {
+      display: flex;
+      justify-content: center;
+    }
+
+    .btn-cyber {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(0, 255, 102, 0.12);
+      border: 1.5px solid var(--neon-green);
+      color: var(--neon-green);
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 0.85rem 2.4rem;
+      border-radius: 8px;
+      text-decoration: none;
+      cursor: pointer;
+      box-shadow: 0 0 15px var(--neon-glow);
+      transition: all 0.3s ease;
+    }
+
+    .btn-cyber:hover {
+      background: var(--neon-green);
+      color: #070b0d;
+      box-shadow: 0 0 25px rgba(0, 255, 102, 0.7);
+      transform: translateY(-2px);
+    }
+
+    /* Contact Us Section (Bottom) */
+    .contact-card {
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+    }
+
+    .contact-card .card-title {
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-subtitle {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .contact-pills-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.2rem;
+    }
+
+    .contact-pill {
+      background: rgba(13, 22, 26, 0.95);
+      border: 1px solid var(--bg-card-border);
+      padding: 0.85rem 1.6rem;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.95rem;
+      color: var(--text-main);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-family: var(--font-code);
+    }
+
+    .contact-pill i {
+      color: var(--neon-green);
+      font-size: 1.15rem;
+    }
+
+    .contact-pill:hover {
+      border-color: var(--neon-green);
+      box-shadow: 0 0 16px var(--neon-glow);
+      transform: translateY(-3px);
+      color: #fff;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      border-top: 1px solid #142220;
+    }
+
+    footer i {
+      color: var(--neon-green);
+      margin-right: 4px;
+    }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: var(--bg-card);
+      border: 1px solid var(--neon-green);
+      color: var(--neon-green);
+      width: 42px;
+      height: 42px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 0 10px var(--neon-glow);
+      transition: transform 0.2s ease;
+    }
+
+    .back-to-top:hover {
+      transform: translateY(-3px);
+    }
+
+    @media (max-width: 768px) {
+      nav { display: none; }
+      .grid-2 { grid-template-columns: 1fr; }
+      .lang-container { grid-template-columns: 1fr; }
+      .about-content { flex-direction: column; }
+      .hero h1 { font-size: 2.2rem; }
+      .contact-pill { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header>
+    <a href="#" class="brand">
+      <i class="fa-solid fa-shield-halved brand-icon"></i>
+      <div>
+        <div class="brand-title">SANGHANI <span>ROHIT</span></div>
+        <span class="brand-subtitle">Student</span>
+      </div>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#project">Project</a></li>
+        <li><a href="#languages">Languages</a></li>
+        <li><a href="#download">Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container" id="home">
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-badge-container">
+        <div class="hero-badge">
+          <i class="fa-solid fa-lock"></i>
+        </div>
+      </div>
+      <h1>SANGHANI <span>ROHIT</span></h1>
+      <div class="hero-tag">STUDENT</div>
+      <p class="hero-desc">
+        Aspiring <strong>IT & Cyber Security Professional</strong> | Secure Today, Protect Tomorrow
+      </p>
+    </section>
+
+    <!-- About Me Section -->
+    <section class="card" id="about">
+      <div class="card-title">
+        <i class="fa-regular fa-user"></i> About Me
+      </div>
+      <div class="about-content">
+        <div class="about-text">
+          I am a dedicated BCA student at Atmiya University and a motivated fresher looking for an opportunity in the IT field. I am deeply interested in computer applications, data management, office tools, and basic cybersecurity, bringing a positive attitude and a strong willingness to continuously learn and grow.
+        </div>
+        <div class="about-visual">
+          <div class="cyber-hacker-illustration">
+            <i class="fa-solid fa-user-secret"></i>
+            <span style="font-size: 0.75rem; font-family: var(--font-code);"><i class="fa-solid fa-shield-virus"></i> CYBER_SEC</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Row (Technical Skills & Additional IT / Soft Skills) -->
+    <div class="grid-2" id="skills">
+      <!-- Primary Technical Skills -->
+      <section class="card">
+        <div class="card-title">
+          <i class="fa-solid fa-code"></i> Technical Skills
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-info"><i class="fa-brands fa-html5" style="color: #e34c26;"></i> HTML</div>
+          <div class="progress-bar-bg"><div class="progress-fill" style="width: 85%;"></div></div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-info"><i class="fa-brands fa-css3-alt" style="color: #264de4;"></i> CSS</div>
+          <div class="progress-bar-bg"><div class="progress-fill" style="width: 75%;"></div></div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-info"><i class="fa-brands fa-js" style="color: #f7df1e;"></i> JavaScript</div>
+          <div class="progress-bar-bg"><div class="progress-fill" style="width: 70%;"></div></div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-info"><i class="fa-brands fa-php" style="color: #777bb4;"></i> PHP (Basic)</div>
+          <div class="progress-bar-bg"><div class="progress-fill" style="width: 65%;"></div></div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-info"><i class="fa-solid fa-microchip"></i> AI</div>
+          <div class="progress-bar-bg"><div class="progress-fill" style="width: 40%;"></div></div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-info"><i class="fa-solid fa-terminal"></i> AI Prompts</div>
+          <div class="progress-bar-bg"><div class="progress-fill" style="width: 80%;"></div></div>
+        </div>
+      </section>
+
+      <!-- Second Skills Section: IT Tools & Professional Skills -->
+      <section class="card">
+        <div class="card-title">
+          <i class="fa-solid fa-laptop-code"></i> IT & Professional Skills
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-info"><i class="fa-solid fa-file-lines"></i> MS Office</div>
+          <div class="progress-bar-bg"><div class="progress-fill" style="width: 85%;"></div></div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-info"><i class="fa-solid fa-calculator"></i> Tally</div>
+          <div class="progress-bar-bg"><div class="progress-fill" style="width: 75%;"></div></div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-info"><i class="fa-solid fa-desktop"></i> Computer Fund.</div>
+          <div class="progress-bar-bg"><div class="progress-fill" style="width: 80%;"></div></div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-info"><i class="fa-solid fa-database"></i> Data Management</div>
+          <div class="progress-bar-bg"><div class="progress-fill" style="width: 75%;"></div></div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-info"><i class="fa-solid fa-folder-tree"></i> Data Org.</div>
+          <div class="progress-bar-bg"><div class="progress-fill" style="width: 80%;"></div></div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-info"><i class="fa-solid fa-shield-halved"></i> Cybersecurity</div>
+          <div class="progress-bar-bg"><div class="progress-fill" style="width: 70%;"></div></div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-info"><i class="fa-solid fa-comments"></i> Communication</div>
+          <div class="progress-bar-bg"><div class="progress-fill" style="width: 85%;"></div></div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-info"><i class="fa-solid fa-users"></i> Teamwork</div>
+          <div class="progress-bar-bg"><div class="progress-fill" style="width: 85%;"></div></div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-info"><i class="fa-solid fa-clock"></i> Time Mgmt.</div>
+          <div class="progress-bar-bg"><div class="progress-fill" style="width: 80%;"></div></div>
+        </div>
+      </section>
+    </div>
+ <!-- Education Section (BCA, 12th HSC, 10th SSC) -->
+    <section class="card" id="education">
+      <div class="card-title">
+        <i class="fa-solid fa-graduation-cap"></i> Education
+      </div>
+
+      <div class="edu-timeline">
+        <!-- BCA Degree -->
+        <div class="edu-content">
+          <div class="edu-degree">Bachelor of Computer Applications (BCA)</div>
+          <div class="edu-spec">Specialization: Cyber Security</div>
+          <div class="edu-meta">
+            <div><i class="fa-solid fa-building-columns"></i> Atmiya University</div>
+            <div><i class="fa-regular fa-calendar"></i> 2025 – 2028</div>
+          </div>
+          <span class="edu-badge">Pursuing</span>
+        </div>
+
+        <!-- 12th HSC -->
+        <div class="edu-content">
+          <div class="edu-degree">Higher Secondary Certificate (12th / HSC)</div>
+          <div class="edu-spec">Stream: Commerce | Board: HSC</div>
+          <div class="edu-meta">
+            <div><i class="fa-solid fa-school"></i> Field Marshal School</div>
+            <div><i class="fa-regular fa-calendar"></i> 2024 – 2025</div>
+          </div>
+          <span class="edu-badge">Result: 52%</span>
+        </div>
+
+        <!-- 10th SSC -->
+        <div class="edu-content">
+          <div class="edu-degree">Secondary School Certificate (10th / SSC)</div>
+          <div class="edu-spec">Stream: Commerce | Board: SSC</div>
+          <div class="edu-meta">
+            <div><i class="fa-solid fa-school"></i> Field Marshal School</div>
+            <div><i class="fa-regular fa-calendar"></i> 2022 – 2023</div>
+          </div>
+          <span class="edu-badge">Result: 55%</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience & Project Row -->
+    <div class="grid-2">
+      <!-- Experience Card -->
+      <section class="card">
+        <div class="card-title">
+          <i class="fa-solid fa-briefcase"></i> Experience
+        </div>
+        <div class="exp-project-box">
+          <div class="icon-badge">
+            <i class="fa-solid fa-user-tie"></i>
+          </div>
+          <div>
+            <div class="exp-title">FRESHER</div>
+            <p class="exp-text">
+              Eager to apply my knowledge and skills in real-world challenges and grow as an IT & Cyber Security professional.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Project Card -->
+      <section class="card" id="project">
+        <div class="card-title">
+          <i class="fa-regular fa-folder-open"></i> Project
+        </div>
+        <div class="exp-project-box">
+          <div class="icon-badge">
+            <i class="fa-solid fa-shield-check"></i>
+          </div>
+          <div>
+            <div class="exp-title">Saving Goals Planner</div>
+            <p class="exp-text">
+              A web-based application to help users plan, track, and achieve their saving goals efficiently. It allows users to set goals, add savings, and monitor progress in a simple dashboard.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Languages Card -->
+    <section class="card" id="languages">
+      <div class="card-title">
+        <i class="fa-solid fa-globe"></i> Languages
+      </div>
+      <div class="lang-container">
+        <div class="lang-box">
+          <i class="fa-regular fa-comments"></i>
+          <div class="lang-info">
+            <div class="lang-name">Gujarati</div>
+            <div class="lang-level">Native</div>
+          </div>
+        </div>
+        <div class="lang-box">
+          <i class="fa-regular fa-comments"></i>
+          <div class="lang-info">
+            <div class="lang-name">Hindi</div>
+            <div class="lang-level">Proficient</div>
+          </div>
+        </div>
+        <div class="lang-box">
+          <i class="fa-regular fa-comments"></i>
+          <div class="lang-info">
+            <div class="lang-name">English</div>
+            <div class="lang-level">Proficient</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section class="card contact-card" id="contact">
+      <div class="card-title">
+        <i class="fa-solid fa-address-book"></i> Contact Us / Let's Connect!
+      </div>
+      <p class="contact-subtitle">
+        I am always open to learning, collaborating and exploring new opportunities.
+      </p>
+      <div class="contact-pills-container">
+        <a href="tel:+919510863604" class="contact-pill">
+          <i class="fa-solid fa-phone"></i> +91 9510863604
+        </a>
+        <a href="mailto:sanghanirohit1@gmail.com" class="contact-pill">
+          <i class="fa-solid fa-envelope"></i> sanghanirohit1@gmail.com
+        </a>
+        <span class="contact-pill">
+          <i class="fa-solid fa-location-dot"></i> Rajkot, Gujarat
+        </span>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <i class="fa-solid fa-lock"></i> &copy; 2025 Sanghani Rohit. All Rights Reserved.
+  </footer>
+
+  <!-- Floating Scroll Up Button -->
+  <a href="#home" class="back-to-top" title="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </a>
+
+</body>
+</html>
